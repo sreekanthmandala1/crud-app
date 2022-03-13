@@ -1,0 +1,27 @@
+button {
+  background-color: blue;
+  border-radius: 12px;
+}
+table {
+  background-color: rgb(243, 13, 232);
+  color: azure;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 15px;
+  justify-content: center;
+}
+th {
+  background-color: black;
+  color: beige;
+  border-radius: 20px;
+  padding: 5px;
+}
+div {
+  background-color: greenyellow;
+}
+h1 {
+  text-align: center;
+}
+/* .App{
+    background-color: aqua;
+} */

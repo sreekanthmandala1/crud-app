@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       title: "CRUD App",
       employeeData: [],
@@ -33,6 +33,7 @@ class App extends Component {
       act: 0,
     });
     this.refs.myForm.reset();
+    this.refs.txtName.focus();
   };
   Delete = (i) => {
     let employeeData = this.state.employeeData;

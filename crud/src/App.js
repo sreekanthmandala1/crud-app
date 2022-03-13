@@ -7,8 +7,11 @@ class App extends Component {
       title: "CRUD App",
       employeeData: [],
       act: 0,
-      index: "",
-    };
+      idx: "",
+    }
+  }
+  componentDidMount(){
+    this.refs.txtName.focus();
   }
   Submit = (e) => {
     e.preventDefault();
@@ -23,7 +26,7 @@ class App extends Component {
       employeeData.push(newEmployee);
     } 
     else {
-      let index = this.state.index;
+      let index = this.state.idx;
       employeeData[index].name = name;
       employeeData[index].age = age;
     }
@@ -35,22 +38,22 @@ class App extends Component {
     this.refs.myForm.reset();
     this.refs.txtName.focus();
   };
-  Delete = (i) => {
+  Delete = (index) => {
     let employeeData = this.state.employeeData;
-    employeeData.splice(i,1);
+    employeeData.splice(index,1);
     this.setState({
       employeeData: employeeData,
     });
   };
-  Update = (i) => {
-    let employeeData = this.state.employeeData[i];
+  Update = (index) => {
+    let employeeData = this.state.employeeData[index];
     this.refs.txtName.value = employeeData.name;
     this.refs.txtAge.value = employeeData.age;
 
     this.setState({
       employeeData: employeeData,
       act: 1,
-      index: 'i',
+      idx: 'index',
     });
   };
   render() {
@@ -76,15 +79,15 @@ class App extends Component {
             <th>Name</th>
             <th>Age</th>
           </tr>
-          {employeeData.map((data, i) => (
-            <tr key={i}>
+          {employeeData.map((data, index) => (
+            <tr key={index}>
               <td>{data.name}</td>
               <td>{data.age}</td>
               <td>
-                <button onClick={(i) => this.Update(i)}>Edit</button>
+                <button onClick={(index) => this.Update(index)}>Edit</button>
               </td>
               <td>
-                <button onClick={(i) => this.Delete(i)}>Delete</button>
+                <button onClick={(index) => this.Delete(index)}>Delete</button>
               </td>
             </tr>
           ))}
